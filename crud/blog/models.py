@@ -8,6 +8,7 @@ class Blog(models.Model): #클래스 Blog 선언
     writer = models.CharField(max_length=15, default='닉네임을 입력해주세요') #글쓴이는 model의 charfield로 받되, 최대길이는 15이고 이름을 입력하기 이전에 '닉네임을 입력해주세요'를 먼저 띄운다.
     content = models.TextField() # 내용을 model의 textfield를 이용하여 받는다. 글자제한 x
     hashtags = models.ManyToManyField('Hashtag', blank=True)
+    image = models.ImageField(upload_to='images/', blank = True)
 
     def __str__(self): #함수 __str__선언
         return self.title # 게시물의 제목을 입력한대로 반환한다.

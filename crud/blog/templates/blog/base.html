@@ -23,10 +23,16 @@
         <a class="menu-toggle rounded" href="#"><i class="fas fa-bars"></i></a>
         <nav id="sidebar-wrapper">
             <ul class="sidebar-nav">
-            
                 <li class="sidebar-nav-item"><a href="{% url 'main' %}">홈</a></li>
                 <li class="sidebar-nav-item"><a href="{% url 'create' %}">글 작성</a></li>             
                 <li class="sidebar-nav-item"><a href="{% url 'hashtag' %}">해시태그</a></li>
+                {% if user.is_active %}
+                    <li class="sidebar-nav-item"><a href="{% url 'logout' %}">로그아웃</a></li>
+                    <li class="sidebar-nav-item"><a>{{ user.username }}님 안녕하세요.</a></li>
+                {% else %}
+                    <li class="sidebar-nav-item"><a href="{% url 'login' %}">로그인</a></li>
+                    <li class="sidebar-nav-item"><a href="{% url 'signup' %}">회원 가입</a></li>
+                {% endif %}
             </ul>
         </nav>
         <!-- Header-->

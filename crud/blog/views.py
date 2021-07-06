@@ -71,7 +71,7 @@ def hashtagform(request, hashtag=None):
 
 def create(request, blog=None):
     if request.method == 'POST':
-        form = PostForm(request.POST, instance=blog)
+        form = PostForm(request.POST,request.FILES)
         if form.is_valid():
             post = form.save(commit=False)
             post.pub_date = timezone.datetime.now()

@@ -5,6 +5,9 @@
     <p>글쓴이 : {{post.writer}}</p> <!--글쓴이는 post.wirter로 정한다.-->
     <p>내용 : {{post.content}}</p> <!--내용은 post의 content로 정한다.-->
 
+    {% if posts.image %}
+        <img src="{{posts.image.url}}" width="250" height="250" alt="Card image cap">
+    {% endif%}
     {% for hashtag in post.hashtags.all %}
         {{hashtag.name}}
     {% endfor %}
